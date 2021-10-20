@@ -37,7 +37,7 @@ namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints
         {
             var response = new CreateCatalogItemResponse(request.CorrelationId());
 
-            var newItem = new CatalogItem(request.CatalogTypeId, request.CatalogBrandId, request.Description, request.Name, request.Price, request.PictureUri);
+            var newItem = new CatalogItem(request.CatalogTypeId, request.CatalogBrandId, request.Description, request.Name, request.Subtitle, request.Price, request.PictureUri);
 
             newItem = await _itemRepository.AddAsync(newItem, cancellationToken);
 
@@ -58,6 +58,7 @@ namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints
                 CatalogTypeId = newItem.CatalogTypeId,
                 Description = newItem.Description,
                 Name = newItem.Name,
+                Subtitle = newItem.Subtitle,
                 PictureUri = _uriComposer.ComposePicUri(newItem.PictureUri),
                 Price = newItem.Price
             };

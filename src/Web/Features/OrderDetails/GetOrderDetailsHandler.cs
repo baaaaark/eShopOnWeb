@@ -35,6 +35,7 @@ namespace Microsoft.eShopWeb.Web.Features.OrderDetails
                     PictureUrl = oi.ItemOrdered.PictureUri,
                     ProductId = oi.ItemOrdered.CatalogItemId,
                     ProductName = oi.ItemOrdered.ProductName,
+                    Subtitle = oi.ItemOrdered.Subtitle,
                     UnitPrice = oi.UnitPrice,
                     Units = oi.Units
                 }).ToList(),

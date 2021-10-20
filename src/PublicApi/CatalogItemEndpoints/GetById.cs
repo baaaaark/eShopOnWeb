@@ -42,6 +42,7 @@ namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints
                 CatalogTypeId = item.CatalogTypeId,
                 Description = item.Description,
                 Name = item.Name,
+                Subtitle = item.Subtitle,
                 PictureUri = _uriComposer.ComposePicUri(item.PictureUri),
                 Price = item.Price
             };

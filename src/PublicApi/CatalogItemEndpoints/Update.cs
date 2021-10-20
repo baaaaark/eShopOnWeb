@@ -38,7 +38,7 @@ namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints
 
             var existingItem = await _itemRepository.GetByIdAsync(request.Id, cancellationToken);
 
-            existingItem.UpdateDetails(request.Name, request.Description, request.Price);
+            existingItem.UpdateDetails(request.Name, request.Subtitle, request.Description, request.Price);
             existingItem.UpdateBrand(request.CatalogBrandId);
             existingItem.UpdateType(request.CatalogTypeId);            
 
@@ -51,6 +51,7 @@ namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints
                 CatalogTypeId = existingItem.CatalogTypeId,
                 Description = existingItem.Description,
                 Name = existingItem.Name,
+                Subtitle = existingItem.Subtitle,
                 PictureUri = _uriComposer.ComposePicUri(existingItem.PictureUri),
                 Price = existingItem.Price
             };
