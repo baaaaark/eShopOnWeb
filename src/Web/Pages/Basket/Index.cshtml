@@ -1,8 +1,18 @@
 ﻿@page "{handler?}"
 @model IndexModel
 @{
-    ViewData["Title"] = "Basket";
+        ViewData["Title"] = "Basket";
 }
+@functions{
+
+    List<int> array = new List<int>();
+
+    public void arrayAdd(int moo)
+    {
+        array.Add(moo);
+    }
+}
+
 <section class="esh-catalog-hero">
     <div class="container">
         <img class="esh-catalog-title" src="~/images/main_banner_text.png" />
@@ -12,7 +22,8 @@
 <div class="container">
 
     @if (Model.BasketModel.Items.Any())
-    {
+
+    { 
         <form method="post">
             <article class="esh-basket-titles row">
                 <br />
@@ -27,7 +38,12 @@
                 <div asp-validation-summary="All" class="text-danger"></div>
                 @for (int i = 0; i < Model.BasketModel.Items.Count; i++)
                 {
+
                     var item = Model.BasketModel.Items[i];
+                    
+                        arrayAdd(item.Id);
+                    
+                    
                     <article class="esh-basket-items row">
                         <div>
                             <section class="esh-basket-item esh-basket-item--middle col-lg-3 hidden-lg-down">
@@ -38,16 +54,23 @@
                             <section class="esh-basket-item esh-basket-item--middle col-xs-1">$ @item.UnitPrice.ToString("N2")</section>
                             <section class="esh-basket-item esh-basket-item--middle col-xs-1">
                                 <input type="hidden" name="@("Items[" + i + "].Id")" value="@item.Id" />
-                                <input type="hidden" name="@("Items[" + i + "].Quantity")" value="@item.Quantity" />
-                                @item.Quantity
+                                <input type="number" id="@item.Id" class="esh-basket-input" min="0" name="@("Items[" + i + "].Quantity")" value="@item.Quantity" />
+                                <button type="submit" id="btn@("Items[" + i + "].Id")" onclick="submitForm(@array[i])" name="@("Items[" + i + "].Quantity")" asp-page-handler="Update">Remove</button>
+
                             </section>
                             <section class="esh-basket-item esh-basket-item--middle esh-basket-item--mark col-xs-2">$ @Math.Round(item.Quantity * item.UnitPrice, 2).ToString("N2")</section>
+
                         </div>
                         <div class="row">
 
                         </div>
                     </article>
                 }
+                <script>
+                    function submitForm(iden) {
+                        document.getElementById(iden).value = 0;
+                    }
+                </script>
 
                 <div class="container">
                     <article class="esh-basket-titles esh-basket-titles--clean row">
@@ -91,3 +114,5 @@
         </section>
     }
 </div>
+
+

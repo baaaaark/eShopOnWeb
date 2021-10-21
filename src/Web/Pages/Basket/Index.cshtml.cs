@@ -92,5 +92,10 @@ namespace Microsoft.eShopWeb.Web.Pages.Basket
             cookieOptions.Expires = DateTime.Today.AddYears(10);
             Response.Cookies.Append(Constants.BASKET_COOKIENAME, _username, cookieOptions);
         }
+
+        //private void Remove()
+        //{
+        //    CheckoutModel
+        //}
     }
 }

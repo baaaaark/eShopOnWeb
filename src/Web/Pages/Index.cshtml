@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Catalog";
     @model IndexModel
+    }
 }
 <section class="esh-catalog-hero">
     <div class="container">
@@ -11,18 +12,15 @@
 <section class="esh-catalog-filters">
     <div class="container">
         <form method="get" autocomplete="on" name="form">
-            <label class="esh-catalog-label" data-title="brand" onchange="changeScript()">
+            <label class="esh-catalog-label" data-title="brand" onchange="submitForm()">
                 <select asp-for="@Model.CatalogModel.BrandFilterApplied" asp-items="@Model.CatalogModel.Brands" class="esh-catalog-filter"></select>
             </label>
-            <label class="esh-catalog-label" data-title="type" onchange="changeScript()">
+            <label class="esh-catalog-label" data-title="type" onchange="submitForm()">
                 <select asp-for="@Model.CatalogModel.TypesFilterApplied" asp-items="@Model.CatalogModel.Types" class="esh-catalog-filter"></select>
             </label>
-            <input class="esh-catalog-send" type="image" src="~/images/arrow-right.svg" />
         </form>
         <script>
-            function changeScript() {
-                document.form.submit();
-            }
+            function submitForm() { document.form.submit(); }
         </script>
     </div>
 </section>
