@@ -1,120 +1,29 @@
-[![Build Status](https://github.com/dotnet-architecture/eShopOnWeb/workflows/eShopOnWeb%20Build%20and%20Test/badge.svg)](https://github.com/dotnet-architecture/eShopOnWeb/actions)
+Final Submission
 
-# Microsoft eShopOnWeb ASP.NET Core Reference Application
+Preface:
 
-Sample ASP.NET Core reference application, powered by Microsoft, demonstrating a single-process (monolithic) application architecture and deployment model. If you're new to .NET development, read the [Getting Started for Beginners](https://github.com/dotnet-architecture/eShopOnWeb/wiki/Getting-Started-for-Beginners) guide.
+Before this project started I was unaware of what technologies I would be using.  I am a Linux user, and found despite being able to run my own ASP projects from my computer that the one from the repo was not going to run without a fight.  So instead of wasting time on a problem that could potentially be a very difficult solve, I hooked up an old HD I had laying around, installed an unactivated copy of Windows from an old flash drive (don’t sue me, Bill!) and downloaded Visual Studio.  Although I’ve used Windows my whole life outside of the last year, Visual Studio was brand new.  I waited for Windows to update and installed all of my drivers, all of which took a few hours.
 
-A list of Frequently Asked Questions about this repository can be found [here](https://github.com/dotnet-architecture/eShopOnWeb/wiki/Frequently-Asked-Questions).
+From there I got to work.  I detailed that process below, but in all I probably spent 20+ hours on this.  Most of it beared no obvious fruit to the project or your tasks and was either me reading documentation or watching YouTube videos, experimenting with random things to get a feel for the project, and just trying to fix things I had intentionally or unintentionally broken.  Looking back at what you asked, it feels like it took a long time to fulfill your seemingly simple requests.  But I wasn’t going to stop until those four tasks were done, even if I had to finish it on my own after the two days allotted.  Also I spent a lot of time trying to eliminate any JavaScript from the project, but to no avail.  I take great pleasure in writing clean, loosely-coupled code that follows proper MVC procedure, and am by no means completely satisfied with all of my solutions.
 
-## Overview Video
+I’m saying all this only to convey one message: That’s the person you will get if you hire me.  I am a person with an extremely strong work ethic, and I don’t get intimidated or overwhelmed when working with something unfamiliar, even when there may be external pressure or deadlines.  At the risk of sounding braggadocious I am able to identify patterns and similarities quickly, and was surprised at how easily I was able to understand this project within a couple of days despite having such limited experience with it.  I know that if I had a little more time and a team of people to ask occasional questions that I would have been able to come up with the ideal “Blazor solution” in even shorter time.
 
-[Steve "ardalis" Smith](https://twitter.com/ardalis) recorded [a live stream providing an overview of the eShopOnWeb reference app](https://www.youtube.com/watch?v=vRZ8ucGac8M&ab_channel=Ardalis) in October 2020. 
+What I did
 
-## eBook
+Forking and cloning the repo to my computer was pretty straight forward.  I had no prior experience with Blazor WebAssembly or a project with this structure.  It admittedly took a while to acclimate myself to it, eventually finding out where everything is located and how it functioned.
+I added a subtitle field underneath each name by simply searching for the instances in the project where either Name or DisplayName was used.  I then updated each model, view and controller as-needed to do so.  I did this with the Admin screen as well, but I had issues getting my Admin screen to show any objects at all, even from the initial cloning.  I went ahead and filled out the code for everything the best I could..
+This one was tricky to me, if only because I couldn’t and can’t figure out how to do this using the technologies given.  With JavaScript it is very easy to reload a page using “document.form.submit()”, but even after an extensive internet search I couldn’t find any built in Blazor/ASP functions that would let me do this.  I thought adding an “asp-page-handler” element to the input tag (similar to the one found in the Basket Index form) would do this, but after some trial and error it would not.  Ultimately I just attached a line of JS script to the select tag that runs a one-line function to submit the document.  I don’t like this solution, but I could not figure out how to submit the form otherwise.
+This problem presented me with the same issues as #3.  I couldn’t find the ability to modify a value (like “model.Quantity”) once it had been passed to the form and submitted, so I needed to create an array/list of integers from each basket item that would hold their quantity.  I created a “remove”  button that changed this array value to zero, passed it through the already-existing quantity select tag and submitted the page.  I know I could have done this multiple ways, and I wouldn’t ideally put a lot of function in the front-side of my page like this.  But since the functionality to do what you asked was already built-in (I could not find the quantity setter function to do this through the controller/back-end, but I would rather do it using that method), I went with it.  Oddly enough I needed to use the afore-mentioned “asp-page-handler” element on my input tag instead of using a “document.form.submit()”.  Also this solution took one line of JavaScript to change the values in a given selected input to zero before submitting.
+I didn’t have time at all to complete the bonus activities due to prior engagements and I apologize.
 
-This reference application is meant to support the free .PDF download ebook: [Architecting Modern Web Applications with ASP.NET Core and Azure](https://aka.ms/webappebook), updated to **ASP.NET Core 5.0**. [Also available in ePub/mobi formats](https://dotnet.microsoft.com/learn/web/aspnet-architecture).
+What I learned
 
-You can also read the book in online pages at the .NET docs here: 
-https://docs.microsoft.com/dotnet/architecture/modern-web-apps-azure/
+    I definitely learned a lot on this exercise.  Without having any prior knowledge in Blazor WebAssembly I was thrown for a loop at first, only to pick up on it more and more with every hour.  A lot of what I learned involved ASP.NET as well, and seeing how it differs from Spring Boot.  The arrangement of the project was one I had not seen before, and I learned a lot about navigating larger solutions.  I also learned as an overall experience I really like using C# and ASP.NET.  I found despite being inept at first that it presented itself in a way that let me learn easily.  I’m honestly finding myself wanting to have just a little while longer to try this or that (like why I had to reload the page two separate ways is driving me a bit crazy as I type this).
 
-[<img src="https://user-images.githubusercontent.com/782127/74948402-48512c80-53ca-11ea-948a-58d037440888.png" height="300" />](https://dotnet.microsoft.com/learn/web/aspnet-architecture)
+Next Steps
 
-The **eShopOnWeb** sample is related to the [eShopOnContainers](https://github.com/dotnet/eShopOnContainers) sample application which, in that case, focuses on a microservices/containers-based application architecture. However, **eShopOnWeb** is much simpler in regards to its current functionality and focuses on traditional Web Application Development with a single deployment.
+    From here I think I just need to keep learning about ASP.NET as much as possible.  I understand a lot of the generic concepts behind it, but situationally I found the specific features and code unfamiliar.  I also have been wanting to make a game using Unity/C# and after this I can’t wait.  Working with Visual Studio and this stack was, despite my prior experience with it, enjoyable and ultimately left me wanting more.  Although Blazor was also enjoyable I did find myself missing React or Angular, if only because I was more familiar with them.
 
-The goal for this sample is to demonstrate some of the principles and patterns described in the [eBook](https://aka.ms/webappebook). It is not meant to be an eCommerce reference application, and as such it does not implement many features that would be obvious and/or essential to a real eCommerce application.
+Questions
 
-> ### VERSIONS
-> #### The `master` branch is currently running ASP.NET Core 5.0.
-> #### Older versions are tagged.
-
-## Topics (eBook TOC)
-
-- Introduction
-- Characteristics of Modern Web Applications
-- Choosing Between Traditional Web Apps and SPAs
-- Architectural Principles
-- Common Web Application Architectures
-- Common Client Side Technologies
-- Developing ASP.NET Core MVC Apps
-- Working with Data in ASP.NET Core Apps
-- Testing ASP.NET Core MVC Apps
-- Development Process for Azure-Hosted ASP.NET Core Apps
-- Azure Hosting Recommendations for ASP.NET Core Web Apps
-
-## Running the sample
-
-After cloning or downloading the sample you should be able to run it using an In Memory database immediately. The store's home page should look like this:
-
-![eShopOnWeb home page screenshot](https://user-images.githubusercontent.com/782127/88414268-92d83a00-cdaa-11ea-9b4c-db67d95be039.png)
-
-Most of the site's functionality works with just the web application running. However, the site's Admin page relies on Blazor WebAssembly running in the browser, and it must communicate with the server using the site's PublicApi web application. You'll need to also run this project. You can configure Visual Studio to start multiple projects, or just go to the PublicApi folder in a terminal window and run `dotnet run` from there. Note that if you use this approach, you'll need to stop the application manually in order to build the solution (otherwise you'll get file locking errors).
-
-If you wish to use the sample with a persistent database, you will need to run its Entity Framework Core migrations before you will be able to run the app, and update the `ConfigureServices` method in `Startup.cs` (see below).
-
-You can also run the samples in Docker (see below).
-
-### Configuring the sample to use SQL Server
-
-1. Update `Startup.cs`'s `ConfigureDevelopmentServices` method as follows:
-
-    ```csharp
-    public void ConfigureDevelopmentServices(IServiceCollection services)
-    {
-        // use in-memory database
-        //ConfigureTestingServices(services);
-
-        // use real database
-        ConfigureProductionServices(services);
-
-    }
-    ```
-
-1. Ensure your connection strings in `appsettings.json` point to a local SQL Server instance.
-1. Ensure the tool EF was already installed. You can find some help [here](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet)
-
-    ```
-    dotnet tool install --global dotnet-ef
-    ```
-
-1. Open a command prompt in the Web folder and execute the following commands:
-
-    ```
-    dotnet restore
-    dotnet tool restore
-    dotnet ef database update -c catalogcontext -p ../Infrastructure/Infrastructure.csproj -s Web.csproj
-    dotnet ef database update -c appidentitydbcontext -p ../Infrastructure/Infrastructure.csproj -s Web.csproj
-    ```
-
-    These commands will create two separate databases, one for the store's catalog data and shopping cart information, and one for the app's user credentials and identity data.
-
-1. Run the application.
-
-    The first time you run the application, it will seed both databases with data such that you should see products in the store, and you should be able to log in using the demouser@microsoft.com account.
-
-    Note: If you need to create migrations, you can use these commands:
-
-    ```
-    -- create migration (from Web folder CLI)
-    dotnet ef migrations add InitialModel --context catalogcontext -p ../Infrastructure/Infrastructure.csproj -s Web.csproj -o Data/Migrations
-
-    dotnet ef migrations add InitialIdentityModel --context appidentitydbcontext -p ../Infrastructure/Infrastructure.csproj -s Web.csproj -o Identity/Migrations
-    ```
-
-## Running the sample using Docker
-
-You can run the Web sample by running these commands from the root folder (where the .sln file is located):
-
-```
-docker-compose build
-docker-compose up
-```
-
-You should be able to make requests to localhost:5106 for the Web project, and localhost:5200 for the Public API project once these commands complete. If you have any problems, especially with login, try from a new guest or incognito browser instance.
-
-You can also run the applications by using the instructions located in their `Dockerfile` file in the root of each project. Again, run these commands from the root of the solution (where the .sln file is located).
-
-## Community Extensions
-
-We have some great contributions from the community, and while these aren't maintained by Microsoft we still want to highlight them.
-
-[eShopOnWeb VB.NET](https://github.com/VBAndCs/eShopOnWeb_VB.NET) by Mohammad Hamdy Ghanem
+    I really don’t understand how Blazor reacts with the DOM and handles control inversion.  The idea that I had to submit/update the index and basket index two different ways confuses me, and for a large portion of this project I found myself wondering how to do things the same way I would in React or even vanilla JS.  I can say that my experience in Java/Spring Boot made figuring out C# and ASP.NET much easier, but it also left me frequently questioning what the ASP equivalent to a certain Spring Boot annotation was.
