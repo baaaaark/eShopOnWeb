@@ -22,7 +22,7 @@ I definitely learned a lot on this exercise.  Without having any prior knowledge
 
 Next Steps
 
-From here I think I just need to keep learning about ASP.NET as much as possible.  I understand a lot of the generic concepts behind it, but situationally I found the specific features and code unfamiliar.  I also have been wanting to make a game using Unity/C# and after this I can’t wait.  Working with Visual Studio and this stack was, despite my prior experience with it, enjoyable and ultimately left me wanting more.  Although Blazor was also enjoyable I did find myself missing React or Angular, if only because I was more familiar with them.
+From here I think I just need to keep learning about ASP.NET as much as possible.  I understand a lot of the generic concepts behind it, but situationally I found the specific features and code unfamiliar.  I also have been wanting to make a game using Unity/C# and after this I can’t wait.  Working with Visual Studio and this stack was, despite my lack of prior experience with it, enjoyable and ultimately left me wanting more.  Although Blazor was also enjoyable I did find myself missing React or Angular, if only because I was more familiar with them.
 
 Questions
 
